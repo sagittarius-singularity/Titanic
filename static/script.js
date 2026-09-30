@@ -95,22 +95,20 @@ selectionSendBtn.addEventListener("click", async () => {
     selectionSendBtn.disabled = true;
     selectionSendLoadingContainer.classList.add("loading");
 
-    setTimeout(async () => {
-        const BEresponse = await fetch("/api/model/predict", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(dataTsmt)
-        });
+    const BEresponse = await fetch("/api/model/predict", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(dataTsmt)
+    });
+    
+    const responseBEResponse = await BEresponse.json();
+    DataPredictionResult = responseBEResponse.pdt_bnry_val;
         
-        const responseBEResponse = await BEresponse.json();
-        DataPredictionResult = responseBEResponse.pdt_bnry_val;
-            
-        animateCounter(DataPredictionResult, 2000);
+    animateCounter(DataPredictionResult, 2000);
 
-        selectionSendBtn.textContent = selectionSendBtnCTNT;
-        selectionSendBtn.classList.remove("loading");
-        selectionSendBtn.disabled = false;
-    }, 3000);
+    selectionSendBtn.textContent = selectionSendBtnCTNT;
+    selectionSendBtn.classList.remove("loading");
+    selectionSendBtn.disabled = false;
 })
 
 mutedCcbox.addEventListener("input", () => {
