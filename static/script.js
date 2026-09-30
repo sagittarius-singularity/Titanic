@@ -46,6 +46,8 @@ function animateCounter(targetValue, duration = 2000) {
 }
 
 window.addEventListener("click", () => {
+    mainAudioPlayer.src = "../static/audio/My-Heart-Will-Go-On-Celine-Dion-Karaoke【With-Guide-Melody】-_tQOw_R2gx2E_.mp3";
+    mainAudioPlayer.load();
     mainAudioPlayer.play();
 })
 
