@@ -48,8 +48,7 @@ def model_predicts():
         classe = float(data.get("class"))
         classe_val = (classe - 1.0) / 2.0
 
-        sex = float(data.get("sex"))
-        sex_val = sexe_list.get(sex, 0.0)
+        sex_val = float(data.get("sex"))
 
         age = float(data.get("age"))
         age_val = age / NORM_age_max
