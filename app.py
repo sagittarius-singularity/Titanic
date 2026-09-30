@@ -61,7 +61,7 @@ def model_predicts():
             prediction = model(tensor_data).item() * 100
 
         return jsonify ({
-            "pdt_bnry_val": round(prediction)
+            "pdt_bnry_val": prediction
         })
 
     except Exception as e:
