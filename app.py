@@ -20,6 +20,7 @@ class NeuralNetwork(nn.Module):
 
 model = NeuralNetwork()
 model.load_state_dict(torch.load("model/weights/model_weights.pth"))
+model.eval()
 
 
 @app.route("/")
